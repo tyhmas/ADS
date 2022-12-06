@@ -395,7 +395,7 @@ namespace ADSCloud.Views
                     }
                     else
                     {
-                        if (chart1.Series.IsUniqueName("Vessel " + k))
+                        if (chart2.Series.IsUniqueName("Vessel " + k))
                         {
                             chart2.Series.Add("Vessel " + k);
                             chart2.Series["Vessel " + k].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;

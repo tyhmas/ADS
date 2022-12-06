@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ADSCloud.exe" size="71677392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ADSCloud.exe" size="71676416">
       <assemblyIdentity name="ADSCloud" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0pIOJ6a+btI0zdkd3FJCqZPydQVoZnuR0gXBZ+ya8NI=</dsig:DigestValue>
+        <dsig:DigestValue>+ruR49/CQpdnuMdr71DW/P/FPfn0CIDJCHsVbRomutU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
