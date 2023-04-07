@@ -151,10 +151,6 @@
   <ItemGroup>
     <Compile Include="Controllers\Class1.cs" />
     <Compile Include="Database\CreateDatabase.cs" />
-    <Compile Include="Views\ReplaceRow.cs" />
-    <Compile Include="Views\ReplaceRow.Designer.cs">
-      <DependentUpon>ReplaceRow.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Adduser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,15 +189,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\RowReplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RowReplace.Designer.cs">
+      <DependentUpon>RowReplace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserMgm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\UserMgm.Designer.cs">
       <DependentUpon>UserMgm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\ReplaceRow.resx">
-      <DependentUpon>ReplaceRow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Adduser.resx">
       <DependentUpon>Adduser.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RowReplace.resx">
+      <DependentUpon>RowReplace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserMgm.resx">
       <DependentUpon>UserMgm.cs</DependentUpon>

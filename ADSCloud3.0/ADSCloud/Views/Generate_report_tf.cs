@@ -43,6 +43,7 @@ namespace ADSCloud.Views
             _typrTxt = type;
             //Datagrid Properties
             _Datagridcolor();
+            replace.Enabled = true;
         }
         /// <summary>
         /// Main Menu
@@ -199,6 +200,12 @@ namespace ADSCloud.Views
                     extbutton.Enabled = false;
                     TimeData = TimeData.Distinct().ToList();
                     _createdatabase.Addtoaudit(_usernameTxt, "Generate Dissolution Page", "Data extracted");
+
+                    if (dataGridView1.Rows.Count % short.Parse(Nsamples_txt.Text) != 0)
+                    {
+                        MessageBox.Show("Some experiment data needs to replace now!");
+                        Replace();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -465,7 +472,7 @@ namespace ADSCloud.Views
                             chart2.Series["Vessel " + k].MarkerStyle = MarkerStyle.Square;
                             chart2.Series["Vessel " + k].MarkerSize = 5;
                             chart2.Series["Vessel " + k]["LineTension"] = "0.1";
-                            chart2.Series["Vessel " + k].ToolTip = "Y = #VALY\nX = #VALX";
+                            chart2.Series["Vessel " + k].ToolTip = "Y = #VALY\n这些X = #VALX";
                         }
 
                         if (_totalsample == 3)
@@ -1144,26 +1151,64 @@ namespace ADSCloud.Views
             }
         }
 
+        public void Replace()
+        {
+            Dictionary<int, int> res = null;
+            //using (RowReplace rowReplace = new RowReplace())
+            //{
+            RowReplace rowReplace = new RowReplace();
+            //if(rowReplace.ShowDialog() == DialogResult.OK)
+            //{
+            rowReplace.Closed += (s, args) =>
+            {
+                res = rowReplace.GetData();
+                if (res == null)
+                {
+                    MessageBox.Show("No data is selected!");
+                }
+                if (res != null)
+                {
+                    int offset = short.Parse(stdsample_txt.Text) + short.Parse(blanksamp.Text);
+                    foreach (KeyValuePair<int, int> record in res)
+                    {
+                        //Locate the selected rows
+                        int oldRowNumber = record.Key - offset - 1;
+                        int newRowNumber = record.Value - offset - 1;
+
+                        var oldSeqNumber = dataGridView1.Rows[oldRowNumber].Cells[0].Value;
+                        var oldRowTimePoint = dataGridView1.Rows[oldRowNumber].Cells[1].Value;
+                        var oldRow = dataGridView1.Rows[oldRowNumber];
+                        var newRow = dataGridView1.Rows[newRowNumber];
+                        dataGridView1.Rows.Remove(oldRow);
+                        dataGridView1.Rows.Remove(newRow);
+                        dataGridView1.Rows.Insert(oldRowNumber, newRow);
+
+                        dataGridView1.Rows[oldRowNumber].Cells[0].Value = oldSeqNumber;
+                        dataGridView1.Rows[oldRowNumber].Cells[1].Value = oldRowTimePoint;
+                    }
+                }
+            };
+            rowReplace.Show();
+        }
+
         private void replace_Click(object sender, EventArgs e)
         {
-            ReplaceRow replaceForm = new ReplaceRow();
-            replaceForm.dataReady += ReplaceRow;
-
+            Replace();
         }
 
-        private void ReplaceRow(RowDataEventArgs e)
-        {
-            int oldRowNumber = e.oldRowNumber;
-            int newRowNumber = e.newRowNumber;
+        //private void ReplaceRow(RowDataEventArgs e)
+        //{
+        //    int oldRowNumber = e.oldRowNumber;
+        //    int newRowNumber = e.newRowNumber;
 
-            var oldRowTimePoint = dataGridView1.Rows[oldRowNumber].Cells[1].Value;
-            var oldRow = dataGridView1.Rows[oldRowNumber];
-            var newRow = dataGridView1.Rows[newRowNumber];
-            dataGridView1.Rows.Remove(oldRow);
-            dataGridView1.Rows.Insert(oldRowNumber, newRow);
+        //    var oldRowTimePoint = dataGridView1.Rows[oldRowNumber].Cells[1].Value;
+        //    var oldRow = dataGridView1.Rows[oldRowNumber];
+        //    var newRow = dataGridView1.Rows[newRowNumber];
+        //    dataGridView1.Rows.Remove(oldRow);
+        //    dataGridView1.Rows.Insert(oldRowNumber, newRow);
 
-            dataGridView1.Rows[oldRowNumber].Cells[1].Value = oldRowTimePoint;
+        //    dataGridView1.Rows[oldRowNumber].Cells[1].Value = oldRowTimePoint;
 
-        }
+        //}
     }
 }
