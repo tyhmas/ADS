@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1209
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSCloud", "ADSCloud\ADSCloud.csproj", "{B3F056F8-671A-42F4-969A-7176D1773460}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ADS", "ADS\ADS.vdproj", "{7A0E400C-A9A4-4ADF-9E55-951054A784D4}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ADS3.0", "ADS3.0\ADS3.0.vdproj", "{74EECB3A-C5AC-454C-9D5B-E081AC1E1848}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,12 @@ Global
 		{7A0E400C-A9A4-4ADF-9E55-951054A784D4}.Release|x64.Build.0 = Release
 		{7A0E400C-A9A4-4ADF-9E55-951054A784D4}.Release|x86.ActiveCfg = Release
 		{7A0E400C-A9A4-4ADF-9E55-951054A784D4}.Release|x86.Build.0 = Release
+		{74EECB3A-C5AC-454C-9D5B-E081AC1E1848}.Debug|Any CPU.ActiveCfg = Debug
+		{74EECB3A-C5AC-454C-9D5B-E081AC1E1848}.Debug|x64.ActiveCfg = Debug
+		{74EECB3A-C5AC-454C-9D5B-E081AC1E1848}.Debug|x86.ActiveCfg = Debug
+		{74EECB3A-C5AC-454C-9D5B-E081AC1E1848}.Release|Any CPU.ActiveCfg = Release
+		{74EECB3A-C5AC-454C-9D5B-E081AC1E1848}.Release|x64.ActiveCfg = Release
+		{74EECB3A-C5AC-454C-9D5B-E081AC1E1848}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

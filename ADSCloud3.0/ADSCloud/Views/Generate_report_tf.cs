@@ -43,7 +43,6 @@ namespace ADSCloud.Views
             _typrTxt = type;
             //Datagrid Properties
             _Datagridcolor();
-            replace.Enabled = true;
         }
         /// <summary>
         /// Main Menu
@@ -201,7 +200,7 @@ namespace ADSCloud.Views
                     TimeData = TimeData.Distinct().ToList();
                     _createdatabase.Addtoaudit(_usernameTxt, "Generate Dissolution Page", "Data extracted");
 
-                    if (dataGridView1.Rows.Count % short.Parse(Nsamples_txt.Text) != 0)
+                    if ((dataGridView1.Rows.Count - 1) % short.Parse(Nsamples_txt.Text) != 0)
                     {
                         MessageBox.Show("Some experiment data needs to replace now!");
                         Replace();
@@ -276,7 +275,7 @@ namespace ADSCloud.Views
         /// <param name="e"></param>
         private void caldisso_Click(object sender, EventArgs e)
         {
-
+            replace.Enabled = true;
             bool empty1 = Labelamount.Text == "" || dissovolone.Text == "";
             bool empty2 = labelamtapI2.Text == "" || dissolvoltwo.Text == "";
             bool empty3 = labelamtapI3.Text == "" || dissolvolthree.Text == "";

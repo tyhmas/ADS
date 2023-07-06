@@ -73,6 +73,7 @@
             this.Stdconctxt = new System.Windows.Forms.TextBox();
             this.Stdconc = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.replace = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,7 +94,6 @@
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.replace = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -138,7 +138,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 37);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1714, 725);
+            this.tabPage2.Size = new System.Drawing.Size(1714, 753);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "API 1";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -450,6 +450,18 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // replace
+            // 
+            this.replace.Enabled = false;
+            this.replace.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.replace.Location = new System.Drawing.Point(7, 665);
+            this.replace.Name = "replace";
+            this.replace.Size = new System.Drawing.Size(119, 43);
+            this.replace.TabIndex = 8;
+            this.replace.Text = "Replace";
+            this.replace.UseVisualStyleBackColor = true;
+            this.replace.Click += new System.EventHandler(this.replace_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -466,6 +478,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(931, 655);
@@ -476,6 +489,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column1.HeaderText = "Row Number";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 180;
@@ -485,6 +499,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.8F);
             this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column2.HeaderText = "Time point (min)";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 160;
@@ -494,6 +509,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.8F);
             this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column3.HeaderText = "mAu * min";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 150;
@@ -503,6 +519,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.8F);
             this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column5.HeaderText = "% Dissolution";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 160;
@@ -627,7 +644,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 37);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1714, 725);
+            this.tabPage3.Size = new System.Drawing.Size(1714, 753);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "API 2";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -653,7 +670,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 37);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1714, 725);
+            this.tabPage4.Size = new System.Drawing.Size(1714, 753);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "API 3";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -672,18 +689,6 @@
             this.chart3.Text = "chart3";
             title3.Name = "% Dissolution vs Time";
             this.chart3.Titles.Add(title3);
-            // 
-            // replace
-            // 
-            this.replace.Enabled = false;
-            this.replace.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.replace.Location = new System.Drawing.Point(7, 665);
-            this.replace.Name = "replace";
-            this.replace.Size = new System.Drawing.Size(119, 43);
-            this.replace.TabIndex = 8;
-            this.replace.Text = "Replace";
-            this.replace.UseVisualStyleBackColor = true;
-            this.replace.Click += new System.EventHandler(this.replace_Click);
             // 
             // Generate_report_tf
             // 
